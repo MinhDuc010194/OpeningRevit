@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{96422F84-623A-40B6-BC19-D374FDF65F86}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommonOpeningTools</RootNamespace>
+    <AssemblyName>CommonOpeningTools</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\2019\CommonTools\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Commontools.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\..\..\2019\CommonTools\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.1</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.1</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="GongSolutions.WPF.DragDrop, Version=2.0.0.0, Culture=neutral, PublicKeyToken=91f1945125b7a587, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\GongSolutions.WPF.DragDrop.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\Lib\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="MoreLinq, Version=3.2.0.0, Culture=neutral, PublicKeyToken=384d532d7e88985d, processorArchitecture=MSIL">
+      <HintPath>..\packages\morelinq.3.2.0\lib\net451\MoreLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RevitAddInUtility">
+      <HintPath>..\Lib\RevitAddInUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="RevitAPI">
+      <HintPath>..\Lib\RevitAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="RevitAPIUI">
+      <HintPath>..\Lib\RevitAPIUI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\Lib\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OpeningClient\ExtensibleStorage\OpenningProcessExtensibleStorage.cs" />
+    <Compile Include="OpeningClient\HandleMiddleware\ExtensionProcess\OpeningExtension.cs" />
+    <Compile Include="OpeningClient\HandleMiddleware\Handling.cs" />
+    <Compile Include="OpeningClient\HandleMiddleware\RollbackProcess\HandingData.cs" />
+    <Compile Include="OpeningClient\HandleMiddleware\ServerGroupStatus\ClusterFactory.cs" />
+    <Compile Include="OpeningClient\HandleMiddleware\ServerGroupStatus\IClassify.cs" />
+    <Compile Include="OpeningClient\HandleMiddleware\ServerGroupStatus\IFactory.cs" />
+    <Compile Include="OpeningClient\HandleMiddleware\ServerGroupStatus\CompareClassifyLocalStatus.cs" />
+    <Compile Include="OpeningClient\HandleMiddleware\ServerGroupStatus\ServerNormalStatus.cs" />
+    <Compile Include="OpeningClient\HandleMiddleware\ServerGroupStatus\ServerPendingCreateStatus.cs" />
+    <Compile Include="OpeningClient\HandleMiddleware\ServerGroupStatus\ServerPendingDeleteStatus.cs" />
+    <Compile Include="OpeningClient\JsonObject\CommonGeometry.cs" />
+    <Compile Include="OpeningClient\JsonObject\CylynderGeometry.cs" />
+    <Compile Include="OpeningClient\JsonObject\DirectionAndAngle.cs" />
+    <Compile Include="OpeningClient\JsonObject\DrawingInfile.cs" />
+    <Compile Include="OpeningClient\JsonObject\Origin.cs" />
+    <Compile Include="OpeningClient\JsonObject\RectangleGeometry.cs" />
+    <Compile Include="OpeningClient\Model\Action.cs" />
+    <Compile Include="OpeningClient\Model\BaseModel.cs" />
+    <Compile Include="OpeningClient\Model\CompareCoupleWithManager.cs" />
+    <Compile Include="OpeningClient\Model\ComparisonCoupleElement.cs" />
+    <Compile Include="OpeningClient\Model\DefineStatus.cs" />
+    <Compile Include="OpeningClient\Model\GeometryDetail.cs" />
+    <Compile Include="OpeningClient\Model\OpeningModel.cs" />
+    <Compile Include="OpeningClient\Model\RollbackModel\SingleOpeningWithMultipleRevision.cs" />
+    <Compile Include="OpeningClient\Model\RollbackModel\ElementManagerWithRevisionGeometry.cs" />
+    <Compile Include="OpeningClient\Model\RollbackModel\RollbackData.cs" />
+    <Compile Include="OpeningClient\Model\RollbackModel\ElementManagerWithRevisionSpecify.cs" />
+    <Compile Include="OpeningClient\Model\RollbackModel\RevisionGetModel.cs" />
+    <Compile Include="OpeningClient\Model\VersionGeometryOfElementInRevision.cs" />
+    <Compile Include="OpeningClient\Service\AuthenticationInfo.cs" />
+    <Compile Include="OpeningClient\Service\AutoConverter.cs" />
+    <Compile Include="OpeningClient\Service\ElementManager.cs" />
+    <Compile Include="OpeningClient\Service\ElementRollbackSendServer.cs" />
+    <Compile Include="OpeningClient\Service\ElementSendServer.cs" />
+    <Compile Include="OpeningClient\Service\LocalDataPushModel.cs" />
+    <Compile Include="OpeningClient\Service\LocalDataRollbackPushModel.cs" />
+    <Compile Include="OpeningClient\Service\PreprocessingDataPost.cs" />
+    <Compile Include="OpeningClient\Service\ProcessingDataRollback.cs" />
+    <Compile Include="OpeningClient\Service\Repository.cs" />
+    <Compile Include="OpeningClient\Support\BindableBase.cs" />
+    <Compile Include="OpeningClient\Support\Common.cs" />
+    <Compile Include="OpeningClient\Support\ConvertObjectReVitToOpenningString.cs" />
+    <Compile Include="OpeningClient\Support\ConvertOpenningStringToObjectReVit.cs" />
+    <Compile Include="OpeningClient\Support\Define.cs" />
+    <Compile Include="OpeningClient\Support\Cluster.cs" />
+    <Compile Include="OpeningClient\Support\DefineMessage.cs" />
+    <Compile Include="OpeningClient\Support\OpenningInfomation.cs" />
+    <Compile Include="OpeningClient\Support\RelayCommand.cs" />
+    <Compile Include="OpeningClient\Support\Status.cs" />
+    <Compile Include="OpeningClient\Synchronize\Commandata.cs" />
+    <Compile Include="OpeningClient\Synchronize\Process\ProcessData.cs" />
+    <Compile Include="OpeningClient\Synchronize\Process\Subject\MEPOpeningMaker.cs" />
+    <Compile Include="OpeningClient\Synchronize\Process\Subject\MEPProcess.cs" />
+    <Compile Include="OpeningClient\Synchronize\Process\Subject\OpenningMaker.cs" />
+    <Compile Include="OpeningClient\Synchronize\Process\Subject\StructureProcess.cs" />
+    <Compile Include="OpeningClient\Synchronize\Process\Subject\SubjectProcess.cs" />
+    <Compile Include="OpeningClient\Synchronize\UI\Model\ElementVersionModel.cs" />
+    <Compile Include="OpeningClient\Synchronize\UI\Model\OpenningModel.cs" />
+    <Compile Include="OpeningClient\Synchronize\UI\Support\DialogResultType.cs" />
+    <Compile Include="OpeningClient\Synchronize\UI\Support\MultiSelectorExtension.cs" />
+    <Compile Include="OpeningClient\Synchronize\UI\Support\SelectedItemCollection.cs" />
+    <Compile Include="OpeningClient\Synchronize\UI\Support\Ultil.cs" />
+    <Compile Include="OpeningClient\Synchronize\UI\ViewModel\CombineOpeningVM.cs" />
+    <Compile Include="OpeningClient\Synchronize\UI\ViewModel\MainViewModel.cs" />
+    <Compile Include="OpeningClient\Synchronize\UI\View\CombineOpening.xaml.cs">
+      <DependentUpon>CombineOpening.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OpeningClient\Synchronize\UI\View\mainView.xaml.cs">
+      <DependentUpon>mainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OpeningClient\Validation\ValidationData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Commontools.ruleset" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonUtils\CommonUtils2.csproj">
+      <Project>{4570634a-1577-43b1-af50-b5461ebb92f7}</Project>
+      <Name>CommonUtils2</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Page Include="OpeningClient\Synchronize\UI\View\CombineOpening.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OpeningClient\Synchronize\UI\View\mainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

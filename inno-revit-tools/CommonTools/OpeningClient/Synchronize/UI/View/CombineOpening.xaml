@@ -1,0 +1,259 @@
+﻿<UserControl x:Class="CommonTools.OpeningClient.Synchronize.UI.View.CombineOpening"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i = "http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:local="clr-namespace:CommonTools.OpeningClient.Synchronize.UI.View"
+             xmlns:model="clr-namespace:CommonTools.OpeningClient.Synchronize.UI.Model"
+             xmlns:behaviors="clr-namespace:CommonTools.OpeningClient.Support"
+             mc:Ignorable="d"
+             d:DesignHeight="860" d:DesignWidth="1300">
+
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="Converter" />
+    </UserControl.Resources>
+
+    <Grid Margin="0,10,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"></RowDefinition>
+            <RowDefinition Height="23*"></RowDefinition>
+            <RowDefinition Height="547*" />
+            <RowDefinition Height="228*" />
+            <RowDefinition Height="35*" />
+            <RowDefinition Height="14*" />
+            <RowDefinition Height="3*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="182*" />
+            <ColumnDefinition Width="300*"></ColumnDefinition>
+            <ColumnDefinition Width="654*"></ColumnDefinition>
+            <ColumnDefinition Width="161*" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="3" Grid.ColumnSpan="1" Name="ViewGrid" Grid.Row="1" Grid.RowSpan="2">
+            <UserControl Content="{Binding UserView}" Margin="0,26,0,0" />
+            <ComboBox DisplayMemberPath="Name" ItemsSource="{Binding ListView}" SelectedValue="{Binding CurentView,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="261" Height="26" Margin="115,0,0,0" />
+            <Label Content="Drawing View " HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="83" Margin="31,0,0,0" />
+            <!--<Label Content="Filter Drwing" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="83" Margin="355,0,0,0" />-->
+            <!--<TextBox Text="{Binding SeachDrawing}" Margin="439,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="266" Height="26" />-->
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                <ColumnDefinition Width="0.7*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Content="Synchronized" Background="{Binding BackgroundSynchronizedColor}"
+                    Command="{Binding SynchCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}">
+            </Button>
+            <Button Content="New" Grid.Column="1" Background="{Binding BackgroundNewColor}"
+                    Command="{Binding NewCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}">
+            </Button>
+            <Button Content="On Server" Grid.Column="2" Background="{Binding BackgroundOnseverColor}"
+                    Command="{Binding OnServerCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}">
+            </Button>
+        </Grid>
+
+        <ListBox ItemsSource="{Binding ListObjectCurent,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectionMode="Extended"
+                 SelectedItem="{Binding SelectedObj,Mode=TwoWay}"
+                 SelectedIndex="{Binding SelectedIndex}"
+                 IsSynchronizedWithCurrentItem="False"
+                 Grid.Row="2" Grid.RowSpan="4" Grid.Column="1">
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem IsEnabled="{Binding IsPullAllow}" Command="{Binding PullAllCommand}"
+                              Header="Pull All Selected" />
+                    <MenuItem IsEnabled="{Binding IsPushAllow}" Command="{Binding PushAllCommand}"
+                              Header="Push All Selected"
+                              CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
+                    <MenuItem IsEnabled="{Binding IsSynch}" Command="{Binding DisconectAllCommand}"
+                              Header="Disconect All Selected"
+                              CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
+                    <MenuItem Command="{Binding NoneAllCommand}" Header="None All Selected" />
+                    <Separator />
+                    <MenuItem IsEnabled="{Binding IsOnServer}"
+                              Header="Preview Mode"
+                              CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}">
+                        <MenuItem IsCheckable="True" IsChecked="{Binding IsEnablePreview}" Header="Enable" />
+                        <MenuItem IsCheckable="True" IsChecked="{Binding IsDissablePreview}" Header="Dissable" />
+                    </MenuItem>
+                    <MenuItem Command="{Binding CloseComand}" Header="Close"
+                              CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
+                </ContextMenu>
+            </ListBox.ContextMenu>
+
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="IsSelected" Value="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Grid.Column="1" Width="185">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.9*" />
+                            <!--<ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*" />-->
+                            <ColumnDefinition Width="1.1*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding ElementName}" Foreground="{Binding ColorStatus, UpdateSourceTrigger=PropertyChanged}" />
+                        <!--<TextBlock Grid.Column="1" Text=":" Foreground="{Binding ColorStatus, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Grid.Column="2" Text="{Binding MarkLocationCurent }" Foreground="{Binding ColorStatus, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Grid.Column="3" Text=":" Foreground="{Binding ColorStatus, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Grid.Column="4" Text="{Binding MarkLocationLastest}" Foreground="{Binding ColorStatus, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Grid.Column="5" Text=":" Foreground="{Binding ColorStatus, UpdateSourceTrigger=PropertyChanged}" />-->
+                        <ComboBox  Grid.Column="2" HorizontalAlignment="Right" Width="100" ItemsSource = "{Binding ObjActions, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentAction,UpdateSourceTrigger=PropertyChanged}" Margin="0,-2" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Grid Grid.Column="2" Grid.Row="1" Grid.RowSpan="5" Margin="1,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <GroupBox Header="Common" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="77*" />
+                            <ColumnDefinition Width="225*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.5*" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="0.2*" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="0.2*" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="0.2*" />
+                        </Grid.RowDefinitions>
+                        <Label Content="Common Id :" Grid.Row="1" />
+                        <Label Content="{Binding Id}" Grid.Row="1" Grid.Column="1" />
+                        <Label Content="Opening Id :" Grid.Row="3" />
+                        <Label Content="{Binding RevitElementId}" Grid.Row="3" Grid.Column="1" />
+                        <Label Content="Status :" Grid.Row="5" />
+                        <Label Content="{Binding Status}" Grid.Row="5" Grid.Column="1" />
+                    </Grid>
+                </GroupBox>
+            </ScrollViewer>
+
+            <GroupBox Header="Curent" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="85*" />
+                        <ColumnDefinition Width="165*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="0.2*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="0.2*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="0.2*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="0.2*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="0.2*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="0.2*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="0.2*" />
+                    </Grid.RowDefinitions>
+                    <Label Content="Element Version :" Grid.Row="1" />
+                    <Label Content="Update Day :" Grid.Row="3" />
+                    <Label Content="Dimension :" Grid.Row="5" />
+                    <Label Content="Coordinate :" Grid.Row="7" />
+                    <Label Content="Mark Location :" Grid.Row="9" />
+                    <Label Content="Direction :" Grid.Row="11" />
+                    <Label Content="{Binding ElementVersionCurent}" Grid.Row="1" Grid.Column="2" />
+                    <Label Content="{Binding ElementVersionCurentDate}" Grid.Row="3" Grid.Column="2" />
+                    <Label Content="{Binding DimentionCurent}" Grid.Row="5" Grid.Column="2" />
+                    <Label Content="{Binding CoordinateCurent}" Grid.Row="7" Grid.Column="2" />
+                    <Label Content="{Binding MarkLocationCurent}" Grid.Row="9" Grid.Column="2" />
+                    <Label Content="{Binding DirectionCurent}" Grid.Row="11" Grid.Column="2" />
+                    <Button Content="Preview" Visibility="{Binding PreviewVisibility,Converter={StaticResource Converter}}"
+                            Command="{Binding CurentPreview}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                            Grid.Row="13" Grid.Column="1" Margin="0,0,150,0"></Button>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="lastest" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Row="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="85*" />
+                        <ColumnDefinition Width="165*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="0.2*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="0.2*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="0.2*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="0.2*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="0.2*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="0.2*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="0.2*" />
+                    </Grid.RowDefinitions>
+                    <Label Content="Element Version :" Grid.Row="1" />
+                    <Label Content="Update Day :" Grid.Row="3" />
+                    <Label Content="Dimension :" Grid.Row="5" />
+                    <Label Content="Coordinate :" Grid.Row="7" />
+                    <Label Content="Mark Location :" Grid.Row="9" />
+                    <Label Content="Direction :" Grid.Row="11" />
+                    <Label Content="{Binding ElementVersionLastest}" Grid.Row="1" Grid.Column="2" />
+                    <Label Content="{Binding ElementVersionLastestDate}" Grid.Row="3" Grid.Column="2" />
+                    <Label Content="{Binding DimentionLastest}" Grid.Row="5" Grid.Column="2" />
+                    <Label Content="{Binding CoordinateLastest}" Grid.Row="7" Grid.Column="2" />
+                    <Label Content="{Binding MarkLocationLastest}" Grid.Row="9" Grid.Column="2" />
+                    <Label Content="{Binding DirectionLastest}" Grid.Row="11" Grid.Column="2" />
+                    <Button Content="Preview" Visibility="{Binding PreviewVisibility, Converter={StaticResource Converter}}"
+                            Command="{Binding LastestPreview}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                            Grid.Row="13" Grid.Column="1" Margin="0,0,118,0"></Button>
+                </Grid>
+            </GroupBox>
+        </Grid>
+
+        <Grid Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="73*" />
+                <ColumnDefinition Width="568*" />
+                <ColumnDefinition Width="73*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="245*" />
+                <RowDefinition Height="31*" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBox Text="{Binding Comment}" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" Grid.ColumnSpan="3" Margin="2,0" Background="#FFFFFFDA" BorderBrush="#FF678DFF" />
+            <TextBox AcceptsReturn="True" Grid.Row="1" TextWrapping="Wrap" Text="{Binding CurentComment}" Grid.Column="1" Background="White" BorderBrush="#FF678DFF" />
+            <TextBox Grid.Row="1" TextWrapping="Wrap" Text="Chat" TextAlignment="Center" FontSize="15" BorderBrush="#FF678DFF" Margin="2,0,0,0" />
+            <Button Command="{Binding SendCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                    Content="Send" Grid.Column="2" Grid.Row="1" Margin="0,0,2,0" />
+        </Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Column="4" Grid.Row="2"  Margin="0,10,0,0">
+            <TreeView ScrollViewer.VerticalScrollBarVisibility="Auto"
+          ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding GroupDrawings}" Margin="2,0,2,2">
+            </TreeView>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

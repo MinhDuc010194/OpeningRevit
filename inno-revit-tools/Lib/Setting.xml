@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Setting>
+  <Sever>
+    <Lm_Url> http://165.22.61.142:8080 </Lm_Url>
+    <Lm_Url_Frontend> http://165.22.61.142 </Lm_Url_Frontend>
+  </Sever>
+</Setting>

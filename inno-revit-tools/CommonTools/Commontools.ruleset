@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Commontools" ToolsVersion="15.0">
+  <Include Path="minimumrecommendedrules.ruleset" Action="Default" />
+</RuleSet>

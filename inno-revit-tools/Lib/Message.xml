@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Message>
+  <Dimension>
+    <MSG_DIM_001> Retention Dimension success! </MSG_DIM_001>
+    <MSG_DIM_002> Haven't Revit link in this view! </MSG_DIM_002>
+    <MSG_DIM_003> Haven't Dimension need to retention! </MSG_DIM_003>
+    <MSG_DIM_004> Loading Dimension success! </MSG_DIM_004>
+    <MSG_DIM_005> Haven't Dimension need to reloading! </MSG_DIM_005>
+    <MSG_DIM_006> Haven't Dimension linear in this view! </MSG_DIM_006>
+    <MSG_DIM_007> Cutting Dimension finished! </MSG_DIM_007>
+
+    <WRN_DIM_001> Not Revit link selected! </WRN_DIM_001>
+    <WRN_DIM_002> Exist Dimension could not reload! </WRN_DIM_002>
+
+    <ERR_DIM_001> Retention Dimension failure! </ERR_DIM_001>
+    <ERR_DIM_002> Could not find feet Dimension! </ERR_DIM_002>
+    <ERR_DIM_003> Loading Dimension failure! </ERR_DIM_003>
+    <ERR_DIM_004> Cutting Dimension failure! </ERR_DIM_004>
+  </Dimension>
+  <Beam_Detail>
+    <MSG_BDV_001> Create Sheet success! </MSG_BDV_001>
+    <MSG_BDV_002> Update Sheet success! </MSG_BDV_002>
+    <MSG_BDV_003> Update Sheet is canceled! </MSG_BDV_003>
+    <MSG_BDV_004> Could not select Beam in active view! </MSG_BDV_004>
+
+    <WRN_BDV_001> Information of Sheet is not completed or \nName has keyword special. Please try again! </WRN_BDV_001>
+    <WRN_BDV_002> Beam is too lengthy (>30m) \nDo you want to create Sheet? </WRN_BDV_002>
+    <WRN_BDV_003> Some default setting could not find! </WRN_BDV_003>
+    <WRN_BDV_004> Setting name is already in use \nDo you want to replace them? </WRN_BDV_004>
+    <WRN_BDV_005> There is no Sheet to update. Please try again! </WRN_BDV_005>
+    <WRN_BDV_006> Name of Mark is already in the sheet. \nDo you want to update sheet? </WRN_BDV_006>
+
+    <ERR_BDV_001> Create Sheet failure! </ERR_BDV_001>
+    <ERR_BDV_002> Beam is too lengthy (>1Km). Please try again! </ERR_BDV_002>
+    <ERR_BDV_003> Beam must be rectangle and on the same offset. \nPlease try again! </ERR_BDV_003>
+    <ERR_BDV_004> Name of Beam is invalid. \nPlease check name in Mark! </ERR_BDV_004>
+    <ERR_BDV_005> Multi beams are invalid. Please try again! </ERR_BDV_005>
+  </Beam_Detail>
+  <Column_Detail>
+    <MSG_CDV_001> Could not select Column in active view! </MSG_CDV_001>
+
+    <WRN_CDV_001> Column is too lengthy (>30m) \nDo you want to create Sheet? </WRN_CDV_001>
+    <WRN_CDV_002> Mark of Column is already in the sheet. \nDo you want to update sheet? </WRN_CDV_002>
+
+    <ERR_CDV_001> Column is too lengthy (>1Km). Please try again! </ERR_CDV_001>
+    <ERR_CDV_002> Column must be rectangle and not tilted. \nPlease try again! </ERR_CDV_002>
+    <ERR_CDV_003> Name of Column is invalid. \nPlease check name in Mark! </ERR_CDV_003>
+    <ERR_CDV_004> Length of group detail is invalid! </ERR_CDV_004>
+  </Column_Detail>
+  <Excel_Sheet>
+    <MSG_EXL_001> Export Template success! </MSG_EXL_001>
+    <MSG_EXL_002> Excel to Sheet finished! </MSG_EXL_002>
+
+    <WRN_EXL_001> File is in using, could not export template! </WRN_EXL_001>
+    <WRN_EXL_002> There is not input data valid, please check input data! </WRN_EXL_002>
+
+    <ERR_EXL_001> Export Template failure! </ERR_EXL_001>
+    <ERR_EXL_002> Excel to Sheet failure! </ERR_EXL_002>
+    <ERR_EXL_003> Could not find file template! </ERR_EXL_003>
+  </Excel_Sheet>
+  <DVI>
+    <MSG_DVI_001> DVI location success! </MSG_DVI_001>
+    <MSG_DVI_002> Could not select data of DVI in active view! </MSG_DVI_002>
+    <MSG_DVI_003> There is no DVI imported! </MSG_DVI_003>
+    <MSG_DVI_004> Export location DVI success! </MSG_DVI_004>
+
+    <WRN_DVI_001> The start of DVI is invalid \nDo you want to try again? </WRN_DVI_001>
+    <WRN_DVI_002> Information of DVI is invalid. \nPlease check input number or name! </WRN_DVI_002>
+    <WRN_DVI_003> Unable to change points in group. \nPlease ungroup and try again! </WRN_DVI_003>
+    <WRN_DVI_004> Data of group is modified. Do you want to save? </WRN_DVI_004>
+    <WRN_DVI_005> You must enter a double number! </WRN_DVI_005>
+    <WRN_DVI_006> Do you want to replace this group? </WRN_DVI_006>
+    <WRN_DVI_007> File is in using, could not export location DVI! </WRN_DVI_007>
+    <WRN_DVI_008> Are you sure that you want to remove it? </WRN_DVI_008>
+    <WRN_DVI_009> Must enter a int value from 0 to 10^8 </WRN_DVI_009>
+    <WRN_DVI_010> Must enter duplicate char value(a...z) and max length equal 10 </WRN_DVI_010>
+
+    <ERR_DVI_001> DVI location failure! </ERR_DVI_001>
+    <ERR_DVI_002> Could not load family DVI! </ERR_DVI_002>
+    <ERR_DVI_003> Survey coordinates is invalid! </ERR_DVI_003>
+    <ERR_DVI_004> Could not export location DVI! </ERR_DVI_004>
+  </DVI>
+  <Duplicate>
+    <MSG_DUP_001> Duplicate views finished! </MSG_DUP_001>
+    <MSG_DUP_002> Duplicate sheets finished! </MSG_DUP_002>
+
+    <WRN_DUP_001> Not yet selected Views valid to duplicate! </WRN_DUP_001>
+    <WRN_DUP_002> Name has keyword special. Please try again! </WRN_DUP_002>
+    <WRN_DUP_003> Please choose \"Duplicate Sheet\" or \"Duplicate View\"! </WRN_DUP_003>
+    <WRN_DUP_004> Please check at least one view to preview!"; </WRN_DUP_004>
+    <WRN_DUP_005> Please assign number to the textbox Start when radio Number is checked! </WRN_DUP_005>
+    <WRN_DUP_006> Please create some sets for views to preview! </WRN_DUP_006>
+    <WRN_DUP_007> There are no views has been checked </WRN_DUP_007>
+    <WRN_DUP_008> The selected set does not contain in current context! </WRN_DUP_008>
+    <WRN_DUP_009> There are no sheets has been checked </WRN_DUP_009>
+    <WRN_DUP_010> Please assign a letter to the textbox Start when radio alphabet is checked! </WRN_DUP_010>
+    <WRN_DUP_011> Must enter a int value from 0 to 10^6 </WRN_DUP_011>
+    <WRN_DUP_012> Must enter duplicate char value(a...z) and max length equal 10 </WRN_DUP_012>
+
+    <ERR_DUP_001> Duplicate views failure! </ERR_DUP_001>
+  </Duplicate>
+  <Room_View>
+    <MSG_RV_001> RoomView tool is canceled! </MSG_RV_001>
+    <MSG_RV_002> RoomView tool is finished! </MSG_RV_002>
+
+    <WRN_RV_001> The new view name already exist!\nPlease assign another name! </WRN_RV_001>
+    <WRN_RV_002> The detail number already exist in the sheet!\nPlease assign another name! </WRN_RV_002>
+    <WRN_RV_003> Please go to plan view to run the tool! </WRN_RV_003>
+    <WRN_RV_004> The Top Offset must be higher than the Base Offset! </WRN_RV_004>
+    <WRN_RV_005> The Top Level is lower than the Base Level! </WRN_RV_005>
+  </Room_View>
+  <Room_Data>
+    <MSG_RD_001> RoomData tool is canceled! </MSG_RD_001>
+    <MSG_RD_002> RoomData tool is finished! </MSG_RD_002>
+    <MSG_RD_003> Import is finished! </MSG_RD_003>
+    <MSG_RD_004> Import is canceled! </MSG_RD_004>
+    <MSG_RD_005> There are no rooms in the project! </MSG_RD_005>
+
+    <WRN_RD_001> Please select a room !</WRN_RD_001>
+    <WRN_RD_002> Please select a type to create! </WRN_RD_002>
+    <WRN_RD_003> The finish is already exist! </WRN_RD_003>
+    <WRN_RD_004> Please select a finish type to remove! </WRN_RD_004>
+    <WRN_RD_005> Please assign an valid unconnected height! </WRN_RD_005>
+    <WRN_RD_006> Please close the excel file! </WRN_RD_006>
+    <WRN_RD_007> Room Data is empty! </WRN_RD_007>
+  </Room_Data>
+  <General>
+    <WRN_GER_001> This tool only work in project document! </WRN_GER_001>
+  </General>
+  <Print>
+    <MSG_PRT_001> Have INNO_Sheet_STT that contains non-numeric values.\nDo you want to switch the sort mode to SheetNumber? </MSG_PRT_001>
+    <MSG_PRT_002> Export file success! </MSG_PRT_002>
+    <MSG_PRT_003> Print success! </MSG_PRT_003>
+    <MSG_PRT_004> Save setting success! </MSG_PRT_004>
+
+    <WRN_PRT_001> Please enter a name! </WRN_PRT_001>
+    <WRN_PRT_002> There are setting do not match the selected printer: </WRN_PRT_002>
+    <WRN_PRT_003> Do you want to continue printing and replace them by In-session setting? </WRN_PRT_003>
+    <WRN_PRT_004> This name already exists, do you want to override? </WRN_PRT_004>
+    <WRN_PRT_005> The following set have no view: </WRN_PRT_005>
+    <WRN_PRT_006> Do you want to continue printing and ignore them? </WRN_PRT_006>
+    <WRN_PRT_007> Number of print is invalid value. Please enter again! </WRN_PRT_007>
+    <WRN_PRT_008> No set in excel file exist in the model to create a group set. </WRN_PRT_008>
+    <WRN_PRT_009> Please select a group set to export. </WRN_PRT_009>
+    <WRN_PRT_010> Please enter a name view/sheet set. </WRN_PRT_010>
+    <WRN_PRT_011>
+      Name cannot contain any of the follows characters: \n \\ : { } [ ] | ; &#60; &#62; ? ` ~ \n or any of the non - printable characters
+    </WRN_PRT_011>
+    <WRN_PRT_012> Please select at least one set to OK! </WRN_PRT_012>
+    <WRN_PRT_013> There are no sets to add views. </WRN_PRT_013>
+
+    <ERR_PRT_001> Invalid or empty selection. Please make sure select only view or sheet element. </ERR_PRT_001>
+  </Print>
+  <ProjectSetup>
+    <MSG_PRO_001> Project setup success! </MSG_PRO_001>
+
+    <WRN_PRO_001> Existing parameters have no value, do you want to export continue? </WRN_PRO_001>
+
+    <ERR_PRO_001> The selected file is not shared parameter file! </ERR_PRO_001>
+    <ERR_PRO_002> Excel file is opening. </ERR_PRO_002>
+    <ERR_PRO_003> Not found Microsoft Excel. </ERR_PRO_003>
+  </ProjectSetup>
+  <Schedule>
+    <WRN_SCH_001> No data in excel file. </WRN_SCH_001>
+    <WRN_SCH_002> Please choose a view schedule! </WRN_SCH_002>
+    <WRN_SCH_003> Too many view schedule in selected. Please only choose a view schedule. </WRN_SCH_003>
+    <WRN_SCH_004> Excel file isn't same schedule. </WRN_SCH_004>
+    <WRN_SCH_005> In sorting/grouping schedule fields : </WRN_SCH_005>
+    <WRN_SCH_006> In filter schedule fields : </WRN_SCH_006>
+    <WRN_SCH_007> missing parameter in element. </WRN_SCH_007>
+    <WRN_SCH_008> Do not use field : </WRN_SCH_008>
+    <WRN_SCH_009> are being used for sorting/grouping. </WRN_SCH_009>
+    <WRN_SCH_010> are being displayed different standard. </WRN_SCH_010>
+    <WRN_SCH_011> to do Sorting/Grouping because they are hidden </WRN_SCH_011>
+    <WRN_SCH_012> Please put schedule selected is active view! </WRN_SCH_012>
+    <WRN_SCH_013> Schedule is not same excel file. </WRN_SCH_013>
+  </Schedule>
+  <FSC>
+    <MSG_FSC_001> Exporting data success! </MSG_FSC_001>
+    <MSG_FSC_002> Importing data success! </MSG_FSC_002>
+    <MSG_FSC_003> FSC Success! </MSG_FSC_003>
+
+    <WRN_FSC_001> Can't select this category. There are no objects in active view! </WRN_FSC_001>
+    <WRN_FSC_002> Can't select this category in 3D view! </WRN_FSC_002>
+    <WRN_FSC_003> Can't use string value for parameter has type double! </WRN_FSC_003>
+    <WRN_FSC_004> Can't change this element because of this can't be allow by Workset </WRN_FSC_004>
+    <WRN_FSC_005> Can't use string value for parameter has type Int! </WRN_FSC_005>
+    <WRN_FSC_006> Can't update ReadOnly Parameter! </WRN_FSC_006>
+    <WRN_FSC_007> Can't use unaccepted strings : { } [ ] | ; &#60; &#62; > ? `, \ ~ Or Vietnamese Characters! </WRN_FSC_007>
+    <WRN_FSC_008> Start/Step Character is wrong type! </WRN_FSC_008>
+    <WRN_FSC_009> Can not change this parameter by index. Because this is parameter of Type Combobox/CheckBox </WRN_FSC_009>
+    <WRN_FSC_010> Can not change this parameter by index. Parameter of type checkbox only accept 0 or 1 value!</WRN_FSC_010>
+    <WRN_FSC_011> Can not change this parameter! </WRN_FSC_011>
+    <WRN_FSC_012> Can not create filter with this parameter! </WRN_FSC_012>
+    <WRN_FSC_013> This value can't larger than 10000000! </WRN_FSC_013>
+    <WRN_FSC_014> This value can't contain both nummeric and leter! </WRN_FSC_014>
+    <WRN_FSC_015> Can't accept space character! </WRN_FSC_015>
+    <WRN_FSC_016> Can't fill more than 20 characters! </WRN_FSC_016>
+    <WRN_FSC_017> Can't accept alphabet characters! </WRN_FSC_017>
+
+    <ERR_FSC_001> Exporting data false! </ERR_FSC_001>
+    <ERR_FSC_002> Data input is null! </ERR_FSC_002>
+    <ERR_FSC_003> Importing data false! </ERR_FSC_003>
+  </FSC>
+</Message>

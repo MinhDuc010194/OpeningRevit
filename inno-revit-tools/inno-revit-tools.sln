@@ -1,0 +1,78 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30317.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inno-revit-tools", "inno-revit-tools\inno-revit-tools.csproj", "{0F9CEE2E-3277-4D2C-B47A-BA28A9885958}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{27EBBBAD-7623-43FD-A960-955398EA08DB}"
+	ProjectSection(SolutionItems) = preProject
+		Lib\AdWindows.dll = Lib\AdWindows.dll
+		Lib\log4net.dll = Lib\log4net.dll
+		Lib\Message.xml = Lib\Message.xml
+		Lib\RevitAddInUtility.dll = Lib\RevitAddInUtility.dll
+		Lib\RevitAPI.dll = Lib\RevitAPI.dll
+		Lib\RevitAPIUI.dll = Lib\RevitAPIUI.dll
+		Lib\RevitTools.xml = Lib\RevitTools.xml
+		Lib\Setting.xml = Lib\Setting.xml
+		Lib\WixUIExtension.dll = Lib\WixUIExtension.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonTools", "CommonTools\CommonTools.csproj", "{96422F84-623A-40B6-BC19-D374FDF65F86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonUtils2", "CommonUtils\CommonUtils2.csproj", "{4570634A-1577-43B1-AF50-B5461EBB92F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F9CEE2E-3277-4D2C-B47A-BA28A9885958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F9CEE2E-3277-4D2C-B47A-BA28A9885958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F9CEE2E-3277-4D2C-B47A-BA28A9885958}.Debug|x64.ActiveCfg = Debug|x64
+		{0F9CEE2E-3277-4D2C-B47A-BA28A9885958}.Debug|x64.Build.0 = Debug|x64
+		{0F9CEE2E-3277-4D2C-B47A-BA28A9885958}.Debug|x86.ActiveCfg = Debug|x86
+		{0F9CEE2E-3277-4D2C-B47A-BA28A9885958}.Debug|x86.Build.0 = Debug|x86
+		{0F9CEE2E-3277-4D2C-B47A-BA28A9885958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F9CEE2E-3277-4D2C-B47A-BA28A9885958}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F9CEE2E-3277-4D2C-B47A-BA28A9885958}.Release|x64.ActiveCfg = Release|x64
+		{0F9CEE2E-3277-4D2C-B47A-BA28A9885958}.Release|x64.Build.0 = Release|x64
+		{0F9CEE2E-3277-4D2C-B47A-BA28A9885958}.Release|x86.ActiveCfg = Release|Any CPU
+		{0F9CEE2E-3277-4D2C-B47A-BA28A9885958}.Release|x86.Build.0 = Release|Any CPU
+		{96422F84-623A-40B6-BC19-D374FDF65F86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96422F84-623A-40B6-BC19-D374FDF65F86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96422F84-623A-40B6-BC19-D374FDF65F86}.Debug|x64.ActiveCfg = Debug|x64
+		{96422F84-623A-40B6-BC19-D374FDF65F86}.Debug|x64.Build.0 = Debug|x64
+		{96422F84-623A-40B6-BC19-D374FDF65F86}.Debug|x86.ActiveCfg = Debug|x86
+		{96422F84-623A-40B6-BC19-D374FDF65F86}.Debug|x86.Build.0 = Debug|x86
+		{96422F84-623A-40B6-BC19-D374FDF65F86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96422F84-623A-40B6-BC19-D374FDF65F86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96422F84-623A-40B6-BC19-D374FDF65F86}.Release|x64.ActiveCfg = Release|x64
+		{96422F84-623A-40B6-BC19-D374FDF65F86}.Release|x64.Build.0 = Release|x64
+		{96422F84-623A-40B6-BC19-D374FDF65F86}.Release|x86.ActiveCfg = Release|Any CPU
+		{96422F84-623A-40B6-BC19-D374FDF65F86}.Release|x86.Build.0 = Release|Any CPU
+		{4570634A-1577-43B1-AF50-B5461EBB92F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4570634A-1577-43B1-AF50-B5461EBB92F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4570634A-1577-43B1-AF50-B5461EBB92F7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4570634A-1577-43B1-AF50-B5461EBB92F7}.Debug|x64.Build.0 = Debug|Any CPU
+		{4570634A-1577-43B1-AF50-B5461EBB92F7}.Debug|x86.ActiveCfg = Debug|x86
+		{4570634A-1577-43B1-AF50-B5461EBB92F7}.Debug|x86.Build.0 = Debug|x86
+		{4570634A-1577-43B1-AF50-B5461EBB92F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4570634A-1577-43B1-AF50-B5461EBB92F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4570634A-1577-43B1-AF50-B5461EBB92F7}.Release|x64.ActiveCfg = Release|Any CPU
+		{4570634A-1577-43B1-AF50-B5461EBB92F7}.Release|x64.Build.0 = Release|Any CPU
+		{4570634A-1577-43B1-AF50-B5461EBB92F7}.Release|x86.ActiveCfg = Release|Any CPU
+		{4570634A-1577-43B1-AF50-B5461EBB92F7}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A19DDDE-8426-48B6-8655-DF5D89AE1FF8}
+	EndGlobalSection
+EndGlobal
