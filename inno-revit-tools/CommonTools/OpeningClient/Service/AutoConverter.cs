@@ -18,7 +18,8 @@ namespace CommonTools.OpeningClient.Service
                     IdManager = manager.Id,
                     ServerGeometry = manager.Geometry,
                     DrawingsContain = manager.DrawingsContain,
-                    Comment = manager.Comment
+                    Comment = manager.Comment,
+                    Name =  manager.Name
                 });
             }
             return listCompare;

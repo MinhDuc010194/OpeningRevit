@@ -14,7 +14,7 @@
         <BooleanToVisibilityConverter x:Key="Converter" />
     </UserControl.Resources>
 
-    <Grid Margin="0,10,0,0">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0"></RowDefinition>
             <RowDefinition Height="23*"></RowDefinition>
@@ -26,21 +26,22 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="182*" />
-            <ColumnDefinition Width="300*"></ColumnDefinition>
-            <ColumnDefinition Width="654*"></ColumnDefinition>
+            <ColumnDefinition Width="242*" />
+
+            <ColumnDefinition Width="416*"></ColumnDefinition>
+            <ColumnDefinition Width="478*"/>
             <ColumnDefinition Width="161*" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="3" Grid.ColumnSpan="1" Name="ViewGrid" Grid.Row="1" Grid.RowSpan="2">
-            <UserControl Content="{Binding UserView}" Margin="0,26,0,0" />
+        <Grid Grid.Column="2" Grid.ColumnSpan="3" Name="ViewGrid" Grid.Row="1" Grid.RowSpan="2" Margin="8,0,0.2,0.8">
+            <UserControl Content="{Binding UserView}" Margin="0,26,10,0" />
             <ComboBox DisplayMemberPath="Name" ItemsSource="{Binding ListView}" SelectedValue="{Binding CurentView,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="261" Height="26" Margin="115,0,0,0" />
             <Label Content="Drawing View " HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="83" Margin="31,0,0,0" />
             <!--<Label Content="Filter Drwing" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="83" Margin="355,0,0,0" />-->
             <!--<TextBox Text="{Binding SeachDrawing}" Margin="439,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="266" Height="26" />-->
         </Grid>
-        <Grid Grid.Column="1" Grid.Row="1">
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="0.4*"></ColumnDefinition>
@@ -64,7 +65,7 @@
                  SelectedItem="{Binding SelectedObj,Mode=TwoWay}"
                  SelectedIndex="{Binding SelectedIndex}"
                  IsSynchronizedWithCurrentItem="False"
-                 Grid.Row="2" Grid.RowSpan="4" Grid.Column="1">
+                 Grid.Row="2" Grid.RowSpan="6" Grid.Column="1">
             <ListBox.ContextMenu>
                 <ContextMenu>
                     <MenuItem IsEnabled="{Binding IsPullAllow}" Command="{Binding PullAllCommand}"
@@ -96,7 +97,7 @@
 
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid Grid.Column="1" Width="185">
+                    <Grid Grid.Column="1" Width="242">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.9*" />
                             <!--<ColumnDefinition Width="1*"></ColumnDefinition>
@@ -116,39 +117,43 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Grid Grid.Column="2" Grid.Row="1" Grid.RowSpan="5" Margin="1,0">
+        <Grid Grid.Column="2" Grid.RowSpan="4" Grid.Row="3">
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="2*" />
+                <RowDefinition Height="9*" />
+                <RowDefinition Height="22*" />
             </Grid.RowDefinitions>
-            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                <GroupBox Header="Common" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
-                    <Grid>
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="274*"/>
+                <ColumnDefinition Width="271*"/>
+
+            </Grid.ColumnDefinitions>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  Grid.Row="0" Grid.ColumnSpan="2"  Grid.RowSpan="1"  >
+                <GroupBox Header="Common" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Row="0"  >
+                    <Grid >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="77*" />
                             <ColumnDefinition Width="225*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="0.5*" />
+
                             <RowDefinition Height="1*" />
-                            <RowDefinition Height="0.2*" />
+
                             <RowDefinition Height="1*" />
-                            <RowDefinition Height="0.2*" />
                             <RowDefinition Height="1*" />
-                            <RowDefinition Height="0.2*" />
+
                         </Grid.RowDefinitions>
-                        <Label Content="Common Id :" Grid.Row="1" />
-                        <Label Content="{Binding Id}" Grid.Row="1" Grid.Column="1" />
-                        <Label Content="Opening Id :" Grid.Row="3" />
-                        <Label Content="{Binding RevitElementId}" Grid.Row="3" Grid.Column="1" />
-                        <Label Content="Status :" Grid.Row="5" />
-                        <Label Content="{Binding Status}" Grid.Row="5" Grid.Column="1" />
+                        <Label Content="Update Day :" Grid.Row="0" FontSize="8"/>
+                        <Label Content="{Binding ElementVersionLastestDate}" Grid.Row="0" Grid.Column="1" FontSize="8"/>
+                        <Label Content="Opening Id :" Grid.Row="1" FontSize="8"/>
+                        <Label Content="{Binding RevitElementId}" Grid.Row="1" Grid.Column="1" FontSize="8"/>
+                        <Label Content="Status :" Grid.Row="2" FontSize="8"/>
+                        <Label Content="{Binding Status}" Grid.Row="2" Grid.Column="1" FontSize="8"/>
                     </Grid>
                 </GroupBox>
             </ScrollViewer>
 
-            <GroupBox Header="Curent" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Row="1">
+            <GroupBox Header="Curent" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Row="1" Grid.RowSpan="2" >
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="85*" />
@@ -168,28 +173,24 @@
                         <RowDefinition Height="0.2*" />
                         <RowDefinition Height="1*" />
                         <RowDefinition Height="0.2*" />
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="0.2*" />
                     </Grid.RowDefinitions>
-                    <Label Content="Element Version :" Grid.Row="1" />
-                    <Label Content="Update Day :" Grid.Row="3" />
-                    <Label Content="Dimension :" Grid.Row="5" />
-                    <Label Content="Coordinate :" Grid.Row="7" />
-                    <Label Content="Mark Location :" Grid.Row="9" />
-                    <Label Content="Direction :" Grid.Row="11" />
-                    <Label Content="{Binding ElementVersionCurent}" Grid.Row="1" Grid.Column="2" />
-                    <Label Content="{Binding ElementVersionCurentDate}" Grid.Row="3" Grid.Column="2" />
-                    <Label Content="{Binding DimentionCurent}" Grid.Row="5" Grid.Column="2" />
-                    <Label Content="{Binding CoordinateCurent}" Grid.Row="7" Grid.Column="2" />
-                    <Label Content="{Binding MarkLocationCurent}" Grid.Row="9" Grid.Column="2" />
-                    <Label Content="{Binding DirectionCurent}" Grid.Row="11" Grid.Column="2" />
+                    <Label Content="Element Version :" Grid.Row="1" FontSize="8"/>
+                    <Label Content="Dimension :" Grid.Row="3" FontSize="8"/>
+                    <Label Content="Coordinate :" Grid.Row="5" FontSize="8"/>
+                    <Label Content="Mark Location :" Grid.Row="7" FontSize="8"/>
+                    <Label Content="Direction :" Grid.Row="9" FontSize="8"/>
+                    <Label Content="{Binding ElementVersionCurent}" Grid.Row="1" Grid.Column="2" FontSize="8"/>
+                    <Label Content="{Binding DimentionCurent}" Grid.Row="3" Grid.Column="2" FontSize="8"/>
+                    <Label Content="{Binding CoordinateCurent}" Grid.Row="5" Grid.Column="2" FontSize="8"/>
+                    <Label Content="{Binding MarkLocationCurent}" Grid.Row="7" Grid.Column="2" FontSize="8"/>
+                    <Label Content="{Binding DirectionCurent}" Grid.Row="9" Grid.Column="2" FontSize="8"/>
                     <Button Content="Preview" Visibility="{Binding PreviewVisibility,Converter={StaticResource Converter}}"
                             Command="{Binding CurentPreview}"
                             CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
-                            Grid.Row="13" Grid.Column="1" Margin="0,0,150,0"></Button>
+                            Grid.Row="11" Margin="67,3.6,73.8,0.4" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
                 </Grid>
             </GroupBox>
-            <GroupBox Header="lastest" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Row="2">
+            <GroupBox Header="lastest" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Row="1" Grid.Column="1">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="85*" />
@@ -209,51 +210,47 @@
                         <RowDefinition Height="0.2*" />
                         <RowDefinition Height="1*" />
                         <RowDefinition Height="0.2*" />
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="0.2*" />
                     </Grid.RowDefinitions>
-                    <Label Content="Element Version :" Grid.Row="1" />
-                    <Label Content="Update Day :" Grid.Row="3" />
-                    <Label Content="Dimension :" Grid.Row="5" />
-                    <Label Content="Coordinate :" Grid.Row="7" />
-                    <Label Content="Mark Location :" Grid.Row="9" />
-                    <Label Content="Direction :" Grid.Row="11" />
-                    <Label Content="{Binding ElementVersionLastest}" Grid.Row="1" Grid.Column="2" />
-                    <Label Content="{Binding ElementVersionLastestDate}" Grid.Row="3" Grid.Column="2" />
-                    <Label Content="{Binding DimentionLastest}" Grid.Row="5" Grid.Column="2" />
-                    <Label Content="{Binding CoordinateLastest}" Grid.Row="7" Grid.Column="2" />
-                    <Label Content="{Binding MarkLocationLastest}" Grid.Row="9" Grid.Column="2" />
-                    <Label Content="{Binding DirectionLastest}" Grid.Row="11" Grid.Column="2" />
+                    <Label Content="Element Version :" Grid.Row="1" FontSize="8" />
+                    <Label Content="Dimension :" Grid.Row="3" FontSize="8"/>
+                    <Label Content="Coordinate :" Grid.Row="5" FontSize="8"/>
+                    <Label Content="Mark Location :" Grid.Row="7" FontSize="8"/>
+                    <Label Content="Direction :" Grid.Row="9" FontSize="8"/>
+                    <Label Content="{Binding ElementVersionLastest}" Grid.Row="1" Grid.Column="2" FontSize="8"/>
+                    <Label Content="{Binding DimentionLastest}" Grid.Row="3" Grid.Column="2" FontSize="8"/>
+                    <Label Content="{Binding CoordinateLastest}" Grid.Row="5" Grid.Column="2" FontSize="8"/>
+                    <Label Content="{Binding MarkLocationLastest}" Grid.Row="7" Grid.Column="2" FontSize="8"/>
+                    <Label Content="{Binding DirectionLastest}" Grid.Row="9" Grid.Column="2" FontSize="8"/>
                     <Button Content="Preview" Visibility="{Binding PreviewVisibility, Converter={StaticResource Converter}}"
                             Command="{Binding LastestPreview}"
                             CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
-                            Grid.Row="13" Grid.Column="1" Margin="0,0,118,0"></Button>
+                            Grid.Row="10" Margin="66,4.6,73.2,4.013" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
                 </Grid>
             </GroupBox>
         </Grid>
 
-        <Grid Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="3">
+        <Grid Grid.Column="3" Grid.Row="3" Grid.RowSpan="4">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="73*" />
-                <ColumnDefinition Width="568*" />
-                <ColumnDefinition Width="73*" />
+                <ColumnDefinition Width="70*" />
+                <ColumnDefinition Width="238*" />
+                <ColumnDefinition Width="69*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="245*" />
-                <RowDefinition Height="31*" />
+                <RowDefinition Height="24*" />
+                <RowDefinition Height="231*"/>
+                <RowDefinition Height="22*" />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <TextBox Text="{Binding Comment}" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" Grid.ColumnSpan="3" Margin="2,0" Background="#FFFFFFDA" BorderBrush="#FF678DFF" />
-            <TextBox AcceptsReturn="True" Grid.Row="1" TextWrapping="Wrap" Text="{Binding CurentComment}" Grid.Column="1" Background="White" BorderBrush="#FF678DFF" />
-            <TextBox Grid.Row="1" TextWrapping="Wrap" Text="Chat" TextAlignment="Center" FontSize="15" BorderBrush="#FF678DFF" Margin="2,0,0,0" />
+            <TextBox Text="{Binding Comment}" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" Grid.ColumnSpan="3" Background="#FFFFFFDA" BorderBrush="#FF678DFF" Grid.RowSpan="2" Margin="0,0,-1,0.2" />
+            <TextBox AcceptsReturn="True" Grid.Row="2" TextWrapping="Wrap" Text="{Binding CurentComment}" Background="White" BorderBrush="#FF678DFF"  Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="0.2,0,-0.6,-0.8" />
+            <TextBox Grid.Row="2" TextWrapping="Wrap" Text="Chat" TextAlignment="Center" FontSize="15" BorderBrush="#FF678DFF"  Grid.RowSpan="2" Margin="0,0,0.8,-0.8" />
             <Button Command="{Binding SendCommand}"
                     CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
-                    Content="Send" Grid.Column="2" Grid.Row="1" Margin="0,0,2,0" />
+                    Content="Send" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" />
         </Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Column="4" Grid.Row="2"  Margin="0,10,0,0">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Column="4" Grid.Row="3" Grid.RowSpan="5">
             <TreeView ScrollViewer.VerticalScrollBarVisibility="Auto"
-          ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding GroupDrawings}" Margin="2,0,2,2">
-            </TreeView>
+          ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding GroupDrawings}" Height="281"/>
         </ScrollViewer>
     </Grid>
 </UserControl>

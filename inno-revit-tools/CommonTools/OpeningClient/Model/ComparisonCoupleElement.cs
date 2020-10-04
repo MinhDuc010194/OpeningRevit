@@ -13,6 +13,7 @@ namespace CommonTools.OpeningClient.Model
     {
         public string LocalStatus { get; set; }
         public string ServerStatus { get; set; }
+        public string Name { get; set; }
         public string Comment { get; set; }
         public GeometryDetail LocalGeometry { get; set; }
         public GeometryDetail ServerGeometry { get; set; }

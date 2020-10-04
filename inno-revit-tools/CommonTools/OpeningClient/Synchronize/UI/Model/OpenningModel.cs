@@ -216,7 +216,12 @@ namespace CommonTools.OpeningClient.Synchronize.UI.Model
             if (_markLocationCurent != "NULL")
                 ElementName += _markLocationCurent + "/";
             if (_markLocationLastest != "NULL")
-                ElementName += _markLocationLastest;
+                ElementName += _markLocationLastest+"/";
+
+           if(OpeningName != null && OpeningName != "")
+            {
+                ElementName += OpeningName;
+            }
         }
 
         public void SetValueAction()
@@ -228,6 +233,7 @@ namespace CommonTools.OpeningClient.Synchronize.UI.Model
         {
             GeometryDetail openningModelSever = comparisonCoupleElement.ServerGeometry;
             GeometryDetail openningModelLocal = comparisonCoupleElement.LocalGeometry;
+            OpeningName = comparisonCoupleElement.Name;
             if (openningModelLocal != null) {
                 if (openningModelLocal.Original != null) {
                     string original = GetOriginalStrFromJson(openningModelLocal.Original);
@@ -454,7 +460,7 @@ namespace CommonTools.OpeningClient.Synchronize.UI.Model
                 _comparisonCoupleElement.Comment = _comment;
             }
         }
-
+        public string OpeningName { get; set; }
         public string ElementName { get; set; }
         public string ElementVersionCurentDate { get; set; }
         public string ElementVersionLastestDate { get; set; }
