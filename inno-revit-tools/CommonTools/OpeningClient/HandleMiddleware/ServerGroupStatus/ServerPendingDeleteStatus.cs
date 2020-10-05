@@ -10,7 +10,7 @@ namespace CommonTools.OpeningClient.HandleMiddleware.ServerGroupStatus
     public class ServerPendingDeleteStatus : IClassify
     {
         private IFactory _factory;
-        private List<OpeningModel> _openingPendingDeleteStatus;
+        private List<OpeningModelDTO> _openingPendingDeleteStatus;
         private CompareClassifyLocalStatus _localClassify;
 
         public ServerPendingDeleteStatus(IFactory factory)

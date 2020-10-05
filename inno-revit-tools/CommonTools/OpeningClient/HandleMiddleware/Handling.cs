@@ -12,7 +12,7 @@ namespace CommonTools.OpeningClient.HandleMiddleware
 {
     public class Handling
     {
-        private List<OpeningModel> _revitElementsOnServer;
+        private List<OpeningModelDTO> _revitElementsOnServer;
         private List<OpeningModel> _revitElementsOnLocal;
         private List<ElementManager> _elementOnStack;
         private List<VersionGeometryOfElementInRevision> _revitElementsWithCurrentVersionGeometry;
@@ -37,7 +37,7 @@ namespace CommonTools.OpeningClient.HandleMiddleware
 
         #endregion Sever
 
-        public Handling(List<OpeningModel> revitElementsOnServer, List<OpeningModel> revitElementsOnLocal, List<ElementManager> elementOnStack)
+        public Handling(List<OpeningModelDTO> revitElementsOnServer, List<OpeningModel> revitElementsOnLocal, List<ElementManager> elementOnStack)
         {
             _revitElementsOnServer = revitElementsOnServer;
             _revitElementsOnLocal = revitElementsOnLocal;
@@ -45,7 +45,7 @@ namespace CommonTools.OpeningClient.HandleMiddleware
             InitData();
         }
 
-        public Handling(List<OpeningModel> revitElementsOnServer, List<ElementManager> elementOnStack, List<VersionGeometryOfElementInRevision> elementsWithCurrentVersionGeometry)
+        public Handling(List<OpeningModelDTO> revitElementsOnServer, List<ElementManager> elementOnStack, List<VersionGeometryOfElementInRevision> elementsWithCurrentVersionGeometry)
         {
             _revitElementsOnServer = revitElementsOnServer;
             _elementOnStack = elementOnStack;

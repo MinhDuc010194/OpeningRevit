@@ -185,30 +185,30 @@ namespace CommonTools.OpeningClient.Synchronize.UI.Model
 
             if (/*_comparisonCoupleElement.LocalGeometry == null && */_comparisonCoupleElement.ServerGeometry != null) {
                 if (DimentionLastest.Contains("Cylynder")) {
-                    ElementName += "C";
+                    ElementName += "Cylynder_";
                 }
                 else {
-                    ElementName += "R";
+                    ElementName += "Rectangle_";
                 }
                 if (DirectionLastest.Contains("0/0/1")) {
-                    ElementName += "F/";
+                    ElementName += "Floor/";
                 }
                 else {
-                    ElementName += "W/";
+                    ElementName += "Window/";
                 }
             }
             else if (_comparisonCoupleElement.LocalGeometry != null /*&& _comparisonCoupleElement.ServerGeometry == null*/) {
                 if (DimentionCurent.Contains("Cylynder")) {
-                    ElementName += "C";
+                    ElementName += "Cylynder_";
                 }
                 else {
-                    ElementName += "R";
+                    ElementName += "Rectangle_";
                 }
                 if (DirectionCurent.Contains("0/0/1")) {
-                    ElementName += "F_";
+                    ElementName += "Floor_";
                 }
                 else {
-                    ElementName += "W_";
+                    ElementName += "Window_";
                 }
             }
 
@@ -216,10 +216,9 @@ namespace CommonTools.OpeningClient.Synchronize.UI.Model
             if (_markLocationCurent != "NULL")
                 ElementName += _markLocationCurent + "/";
             if (_markLocationLastest != "NULL")
-                ElementName += _markLocationLastest+"/";
+                ElementName += _markLocationLastest + "/";
 
-           if(OpeningName != null && OpeningName != "")
-            {
+            if (OpeningName != null && OpeningName != "") {
                 ElementName += OpeningName;
             }
         }
@@ -460,6 +459,7 @@ namespace CommonTools.OpeningClient.Synchronize.UI.Model
                 _comparisonCoupleElement.Comment = _comment;
             }
         }
+
         public string OpeningName { get; set; }
         public string ElementName { get; set; }
         public string ElementVersionCurentDate { get; set; }

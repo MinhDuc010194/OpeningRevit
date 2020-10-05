@@ -11,34 +11,32 @@ namespace CommonTools.OpeningClient.HandleMiddleware.ServerGroupStatus
 {
     public class ClusterFactory : IFactory
     {
-        private List<OpeningModel> _openingsServer;
+        private List<OpeningModelDTO> _openingsServer;
         private List<OpeningModel> _openingsLocal;
 
-        public ClusterFactory(List<OpeningModel> openingsServer, List<OpeningModel> openingsLocal)
+        public ClusterFactory(List<OpeningModelDTO> openingsServer, List<OpeningModel> openingsLocal)
         {
             _openingsLocal = openingsLocal;
             _openingsServer = openingsServer;
         }
 
-        public List<OpeningModel> RetreiveOpeningsServerWithStatus(string status)
+        public List<OpeningModelDTO> RetreiveOpeningsServerWithStatus(string status)
         {
-            return _openingsServer.Where(x => x.Status.Equals(status)).ToList();
+            return _openingsServer.Where(x => x.ServerStatus.Equals(status)).ToList();
         }
 
         public List<ComparisonCoupleElement> RetreiveNewOpeningLocal()
         {
             List<ComparisonCoupleElement> newOpeningFromLocal = new List<ComparisonCoupleElement>();
             foreach (var opening in _openingsLocal) {
-                if (!_openingsServer.Any(x => Common.IsValidGuid(x.IdLocal)
+                if (!_openingsServer.Any(x => Common.IsValidGuid(x.IdRevitElement)
                                             && Common.IsValidGuid(opening.IdLocal)
-                                            && x.IdLocal.Equals(opening.IdLocal))) {
+                                            && x.IdRevitElement.Equals(opening.IdLocal))) {
                     newOpeningFromLocal.Add(new ComparisonCoupleElement(opening, false));
                 }
             }
             return newOpeningFromLocal;
         }
-
-       
 
         public List<ComparisonCoupleElement> RetreiveNewOpeningFromStack(List<OpeningModel> stackOpenings)
         {
@@ -49,12 +47,12 @@ namespace CommonTools.OpeningClient.HandleMiddleware.ServerGroupStatus
             return newOpeningsFromStack;
         }
 
-        public CompareClassifyLocalStatus RetreiveOpeningsLocalCoresponding(List<OpeningModel> opennings)
+        public CompareClassifyLocalStatus RetreiveOpeningsLocalCoresponding(List<OpeningModelDTO> opennings)
         {
             CompareClassifyLocalStatus localClassifyStatus = new CompareClassifyLocalStatus();
 
             foreach (var opening in opennings) {
-                var openingLocalFind = _openingsLocal.FirstOrDefault(x => x.IdLocal.Equals(opening.IdLocal));
+                var openingLocalFind = _openingsLocal.FirstOrDefault(x => x.IdLocal.Equals(opening.IdRevitElement));
                 if (openingLocalFind != null) {
                     if (localClassifyStatus.NormalLocal == null) {
                         localClassifyStatus.NormalLocal = new List<ComparisonCoupleElement>();

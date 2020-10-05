@@ -36,9 +36,9 @@ namespace CommonTools.OpeningClient.Service
             return manangers;
         }
 
-        public static List<OpeningModel> GetOpeningOnServer(string drawingName)
+        public static List<OpeningModelDTO> GetOpeningOnServer(string drawingName)
         {
-            List<OpeningModel> openings = new List<OpeningModel>();
+            List<OpeningModelDTO> openings = new List<OpeningModelDTO>();
             string url = Support.Define.BASE_URL + "api/Element/GetAllElementInDrawing/" + drawingName;
             HttpClient client = new HttpClient();
             var task = client.GetAsync(url).ContinueWith(taskResponse => {
@@ -46,7 +46,7 @@ namespace CommonTools.OpeningClient.Service
                 if (response.IsSuccessStatusCode) {
                     var jsonString = response.Content.ReadAsStringAsync();
                     jsonString.Wait();
-                    openings = JsonConvert.DeserializeObject<List<OpeningModel>>(jsonString.Result);
+                    openings = JsonConvert.DeserializeObject<List<OpeningModelDTO>>(jsonString.Result);
                 }
             });
             task.Wait();
@@ -138,6 +138,23 @@ namespace CommonTools.OpeningClient.Service
         public static string GetCategoryName(string drawingName)
         {
             string url = Support.Define.BASE_URL + "api/Drawing/GetDrawingInfoAsync/" + drawingName;
+            string categoryName = string.Empty;
+            HttpClient client = new HttpClient();
+            var task = client.GetAsync(url).ContinueWith(taskResponse => {
+                var response = taskResponse.Result;
+                if (response.IsSuccessStatusCode) {
+                    var jsonString = response.Content.ReadAsStringAsync();
+                    jsonString.Wait();
+                    categoryName = jsonString.Result;
+                }
+            });
+            task.Wait();
+            return categoryName;
+        }
+
+        public static string GetOpeningName(string idManager)
+        {
+            string url = Support.Define.BASE_URL + "api/ElementManagement/GetElementManagementNameByIdAsync/" + idManager;
             string categoryName = string.Empty;
             HttpClient client = new HttpClient();
             var task = client.GetAsync(url).ContinueWith(taskResponse => {

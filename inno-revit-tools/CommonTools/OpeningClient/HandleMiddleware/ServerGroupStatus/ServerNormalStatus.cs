@@ -10,7 +10,7 @@ namespace CommonTools.OpeningClient.HandleMiddleware.ServerGroupStatus
     public class ServerNormalStatus : IClassify
     {
         private IFactory _factory;
-        private List<OpeningModel> _openingNormalStatus;
+        private List<OpeningModelDTO> _openingNormalStatus;
         private CompareClassifyLocalStatus _localClassify;
 
         public ServerNormalStatus(IFactory factory)

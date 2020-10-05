@@ -10,7 +10,7 @@ namespace CommonTools.OpeningClient.HandleMiddleware.ServerGroupStatus
     public class ServerPendingCreateStatus : IClassify
     {
         private IFactory _factory;
-        private List<OpeningModel> _openingPendingCreateStatus;
+        private List<OpeningModelDTO> _openingPendingCreateStatus;
         private CompareClassifyLocalStatus _localClassify;
 
         public ServerPendingCreateStatus(IFactory factory)

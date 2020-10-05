@@ -24,18 +24,19 @@ namespace CommonTools.OpeningClient.Model
         {
         }
 
-        public ComparisonCoupleElement(OpeningModel elementOnServer, OpeningModel elementOnLocal)
+        public ComparisonCoupleElement(OpeningModelDTO elementOnServer, OpeningModel elementOnLocal)
         {
             Id = elementOnServer.IdServer;
             IdRevitElement = elementOnLocal.IdLocal;
             IdDrawing = elementOnServer.IdDrawing;
             IdManager = elementOnServer.IdManager;
             LocalStatus = DefineStatus.NORMAL;
-            ServerStatus = elementOnServer.Status;
+            ServerStatus = elementOnServer.ServerStatus;
             LocalGeometry = elementOnLocal.Geometry;
             ServerGeometry = elementOnServer.Geometry;
             Comment = elementOnServer.Comment;
-            if (elementOnServer.Status == "Disconnect") {
+            Name = elementOnServer.NameManager;
+            if (elementOnServer.ServerStatus == "Disconnect") {
                 Action = Action.DISCONNECT;
             }
         }
@@ -44,7 +45,7 @@ namespace CommonTools.OpeningClient.Model
         /// use when opening in local is deleted
         /// </summary>
         /// <param name="element"></param>
-        public ComparisonCoupleElement(OpeningModel element, bool isOpeningServer = true)
+        public ComparisonCoupleElement(OpeningModelDTO element, bool isOpeningServer = true)
         {
             if (isOpeningServer) {
                 Id = element.IdServer;
@@ -52,10 +53,11 @@ namespace CommonTools.OpeningClient.Model
                 IdManager = element.IdManager;
                 ServerGeometry = element.Geometry;
                 Comment = element.Comment;
-                ServerStatus = element.Status;
+                ServerStatus = element.ServerStatus;
+                Name = element.NameManager;
             }
             else {
-                IdRevitElement = element.IdLocal;
+                IdRevitElement = element.IdRevitElement;
                 LocalGeometry = element.Geometry;
                 LocalStatus = DefineStatus.NORMAL;
                 ServerStatus = DefineStatus.NONE;
@@ -63,6 +65,17 @@ namespace CommonTools.OpeningClient.Model
                 Id = Guid.Empty.ToString();
                 IdManager = Guid.Empty.ToString();
             }
+        }
+
+        public ComparisonCoupleElement(OpeningModel element, bool isOpeningServer = true)
+        {
+            IdRevitElement = element.IdLocal;
+            LocalGeometry = element.Geometry;
+            LocalStatus = DefineStatus.NORMAL;
+            ServerStatus = DefineStatus.NONE;
+            Comment = element.Comment;
+            Id = Guid.Empty.ToString();
+            IdManager = Guid.Empty.ToString();
         }
 
         public bool IsSameGeometry()

@@ -10,9 +10,9 @@ namespace CommonTools.OpeningClient.HandleMiddleware.ServerGroupStatus
 {
     public interface IFactory
     {
-        List<OpeningModel> RetreiveOpeningsServerWithStatus(string status);
+        List<OpeningModelDTO> RetreiveOpeningsServerWithStatus(string status);
 
-        CompareClassifyLocalStatus RetreiveOpeningsLocalCoresponding(List<OpeningModel> opennings);
+        CompareClassifyLocalStatus RetreiveOpeningsLocalCoresponding(List<OpeningModelDTO> opennings);
 
         List<ComparisonCoupleElement> RetreiveNewOpeningLocal();
     }

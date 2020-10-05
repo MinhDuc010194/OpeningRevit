@@ -34,4 +34,23 @@ namespace CommonTools.OpeningClient.Model
         //
         public GeometryDetail Geometry { get; set; }
     }
+
+    public class OpeningModelDTO
+    {
+        public OpeningModelDTO()
+        {
+            Geometry = new GeometryDetail();
+        }
+
+        // RevitElement
+        public string IdServer { get; set; }
+
+        public string NameManager { get; set; }
+        public string IdManager { get; set; }
+        public string IdRevitElement { get; set; }
+        public string IdDrawing { get; set; }
+        public string Comment { get; set; }
+        public string ServerStatus { get; set; }
+        public GeometryDetail Geometry { get; set; }
+    }
 }

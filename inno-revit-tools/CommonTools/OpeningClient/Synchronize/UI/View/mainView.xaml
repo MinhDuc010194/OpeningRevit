@@ -9,7 +9,7 @@
              mc:Ignorable="d"
              Height="{Binding SystemParameters.PrimaryScreenHeight}"
              Width="{Binding SystemParameters.PrimaryScreenWidth}"
-             d:DesignHeight="860" d:DesignWidth="1300" Background="#FFF1F0F0">
+             d:DesignHeight="860" d:DesignWidth="1300" Background="#FFF1F0F0" WindowState="Maximized" WindowStyle="ToolWindow">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Closing">
             <i:InvokeCommandAction  Command="{Binding CloseCommand}" />
@@ -23,10 +23,10 @@
     </Window.Resources>
     <Grid Margin="0,0,-8,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="781*" />
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="32*" />
-            <RowDefinition Height="10*" />
+            <RowDefinition Height="773*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="30*" />
+            <RowDefinition Height="24*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="23*" />
